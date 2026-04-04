@@ -28,7 +28,7 @@ resource "aws_security_group" "main" {
 resource "aws_instance" "web1" {
     ami = var.ami_id
     instance_type = var.instance_type
-    security_groups = [aws_security_group.main.name]
+    vpc_security_group_ids = [aws_security_group.main.id]
     subnet_id = var.subnet_id
     associate_public_ip_address = true
 
